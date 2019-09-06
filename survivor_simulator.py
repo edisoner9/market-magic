@@ -1,5 +1,5 @@
 
-import random
+import random, math
 
 #-----------------------------------------------------------------#
 
@@ -13,7 +13,7 @@ def simulate(sample, start, trials):
     for num in range(sample):
         population.append(start)
 
-    factors = [0, 1.4, 4, .6, .25]        
+    factors = [0, 1.4, 2, .7, .5]        
     day = 0
     
     while day < trials:
@@ -25,19 +25,24 @@ def simulate(sample, start, trials):
         for num in range(sample):
             if population[num] == 0:
                 zeroes += 1
-            
+                        
         print("Day: ", day)
         print("Survivors: ", sample - zeroes)
         print("Deaths: ", zeroes)
-        print("Average: ", sum(population) / sample)
         print("Max: ", max(population))
         print("Min: ", min(population))
+        print("Average: ", sum(population) / sample)
+        
+        if sample % 2 == 0:
+            median = sorted(population)[sample // 2]
+        else:
+            median = sorted(population)[(sample + 1) // 2]
+        print("Median: ", median)
+        
         print("-----------------------------")
     
 #-----------------------------------------------------------------#
     
-simulate(1000, 10000, 25)
-
-
+simulate(1000, 10000, 10)
 
 
