@@ -13,7 +13,7 @@ def simulate(sample, start, trials):
     for num in range(sample):
         population.append(start)
 
-    factors = [0, 1.4, 4, .6]        
+    factors = [0, 1.4, 4, .6, .25]        
     day = 0
     
     while day < trials:
@@ -26,6 +26,7 @@ def simulate(sample, start, trials):
             if population[num] == 0:
                 zeroes += 1
             
+        print("Day: ", day)
         print("Survivors: ", sample - zeroes)
         print("Deaths: ", zeroes)
         print("Average: ", sum(population) / sample)
@@ -35,6 +36,8 @@ def simulate(sample, start, trials):
     
 #-----------------------------------------------------------------#
     
-simulate(1000, 10000, 10)
+simulate(1000, 10000, 25)
+
+
 
 
