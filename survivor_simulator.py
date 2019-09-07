@@ -72,11 +72,12 @@ def graph(data_list):
     fig, (ax1, ax2, ax3, ax4) = plt.subplots(4)
     
     x = numpy.linspace(0, len(data_list[0]), len(data_list[0]))
+    y = [data_list[z] for z in range(4)]
     
-    ax1.plot(x, data_list[0])
-    ax2.plot(x, data_list[1])
-    ax3.plot(x, data_list[2])
-    ax4.plot(x, data_list[3])
+    ax1.plot(x, y[0])
+    ax2.plot(x, y[1])
+    ax3.plot(x, y[2])
+    ax4.plot(x, y[3])
         
     return
     
