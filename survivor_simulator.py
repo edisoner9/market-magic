@@ -1,12 +1,12 @@
 
-# Simulation program illustrating survivorship bias in market performance as
+# Simple program illustrating survivorship bias in market performance as
 # demonstrated in the book "Fooled by Randomness" by Nassim Nicholas Taleb.
 
 import random, math, numpy
 import matplotlib as mpl
 from matplotlib import pyplot as plt
 
-#-----------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------#
 
 def simulate(sample, start, trials):
     """ sample - int representing the number of accounts in the simulation
@@ -47,51 +47,42 @@ def simulate(sample, start, trials):
         deaths.append(zero_count)
         averages.append(sum(population) / sample)
         maximums.append(max(population))
-        minimums.append(min(population))
         medians.append(median)
 
         print("Trial: ", trial)
         print("Survivors: ", sample - zero_count)
         print("Deaths: ", zero_count)
         print("Max: ", max(population))
-        print("Min: ", min(population))
         print("Average: ", sum(population) / sample)
         print("Median: ", median)
         print("-----------------------------")
     
-    return [survivors, deaths, maximums, minimums, averages, medians]
+    return [survivors, maximums, averages, medians]
     
-#-----------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------#
 
 def graph(data_list):
-    """ Takes in a list of data that contains list for the number of survivors,
-        deaths, maximums, minimums, averages, and medians (in that order) 
-        for a given simulation.
+    """ Takes in a list of lists that contain the number of 
+        survivors, maximums, averages, and medians (in that order) 
+        over time for a given simulation.
         
         Graphs the data using matplotlib. Returns nothing.
     """
     
-    for metric in data_list:
-        for num in range(len(data_list[0])):
-            
-
+    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4)
     
+    x = numpy.linspace(0, len(data_list[0]), len(data_list[0]))
     
+    ax1.plot(x, data_list[0])
+    ax2.plot(x, data_list[1])
+    ax3.plot(x, data_list[2])
+    ax4.plot(x, data_list[3])
+        
     return
     
-#-----------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------#
 
 graph(simulate(1000, 10000, 10))
-
-
-
-
-
-
-
-
-
-
 
 
 
