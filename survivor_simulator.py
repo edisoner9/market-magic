@@ -1,12 +1,12 @@
 
-# Simple program illustrating survivorship bias in market performance as
+# Simulation program illustrating survivorship bias in market performance as
 # demonstrated in the book "Fooled by Randomness" by Nassim Nicholas Taleb.
 
-import random, math
+import random, math, numpy
 import matplotlib as mpl
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
 
-#---------------------------------------------------------------------------#
+#-----------------------------------------------------------------------------------#
 
 def simulate(sample, start, trials):
     """ sample - int representing the number of accounts in the simulation
@@ -61,7 +61,7 @@ def simulate(sample, start, trials):
     
     return [survivors, deaths, maximums, minimums, averages, medians]
     
-#---------------------------------------------------------------------------#
+#-----------------------------------------------------------------------------------#
 
 def graph(data_list):
     """ Takes in a list of data that contains list for the number of survivors,
@@ -71,12 +71,15 @@ def graph(data_list):
         Graphs the data using matplotlib. Returns nothing.
     """
     
+    for metric in data_list:
+        for num in range(len(data_list[0])):
+            
 
     
     
     return
     
-#---------------------------------------------------------------------------#
+#-----------------------------------------------------------------------------------#
 
 graph(simulate(1000, 10000, 10))
 
