@@ -3,7 +3,6 @@
 # demonstrated in the book "Fooled by Randomness" by Nassim Nicholas Taleb.
 
 import random, math, numpy
-import matplotlib as mpl
 from matplotlib import pyplot as plt
 
 #---------------------------------------------------------------------------#
